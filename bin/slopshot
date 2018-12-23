@@ -1,0 +1,4 @@
+#!/bin/bash
+slop=$(slop -of "%g") || exit 1
+read -r G < <(echo $slop)
+import -window root -crop $G png:- | xclip -selection clipboard -i -t image/png
