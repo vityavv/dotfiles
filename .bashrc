@@ -71,12 +71,8 @@ END
     clear #for background artifacting
 fi
 
-# Returns a red [!] if there's an uncommited/untracked file
-git_status() {
-	[ "$(git status --porcelain 2>/dev/null)" != "" ] && echo -ne " \e[1;31m[!]\e[m"
-}
 # Sets PS1 to [victor => foldername] [!] $ (the [!] comes from the previous lines)
-PS1="[\[\e[1;34m\]\u\[\e[m\] => \[\e[1;32m\]\W\[\e[m\]\$(git_status)] $ "
+PS1="[\[\e[1;34m\]\u\[\e[m\] => \[\e[1;32m\]\W\[\e[m\]] $ "
 # makes ls colorful
 alias ls="ls --color=auto"
 
