@@ -72,7 +72,19 @@ END
 fi
 
 # Sets PS1 to [victor => foldername] [!] $ (the [!] comes from the previous lines)
-PS1="[\[\e[1;34m\]\u\[\e[m\] => \[\e[1;32m\]\W\[\e[m\]] $ "
+# PS1="[\[\e[1;34m\]\u\[\e[m\] => \[\e[1;32m\]\W\[\e[m\]] $ "
+PROMPT_COMMAND=ps1_command
+ps1_command() {
+	ext="$?"
+	PS1=""
+	if [ "$ext" != 0 ]; then
+		PS1+="\[\e[1;31m\]"
+	else
+		PS1+="\[\e[1;34m\]"
+	fi
+	PS1+="●\[\e[m\] \[\e[1;32m\]\W\[\e[m\] $ "
+}
+
 # makes ls colorful
 alias ls="ls --color=auto"
 

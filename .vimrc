@@ -1,4 +1,5 @@
 set nocompatible
+set mouse=a
 filetype plugin on
 " Descend into subdirectories
 set path+=**
@@ -40,16 +41,10 @@ nnoremap <C-L> <C-W>l
 " vim-easymotion
 nnoremap zf \\w
 nnoremap Zf \\ge
-" From example stuff
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
-endif
-
+" change cursor in insert mode
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 " airline stuff
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
