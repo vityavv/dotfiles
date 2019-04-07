@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if [ "$1" == "help" ] || [ -z $1 ] || [ -z $2 ]; then
+	echo "Usage: build_md input.md output.pdf"
+	exit 1
+fi
+pandoc -f markdown -t ms -s $1 | sed 's/.LP/.PP/g' | pdfroff -m pdfmark -ms - > $2

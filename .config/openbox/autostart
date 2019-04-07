@@ -1,4 +1,7 @@
-feh --bg-scale ~/background_pixel.png
+#feh --bg-scale ~/background_pixel.png
+#feh --bg-fill ~/wallpapers/fog.jpg
+feh --bg-fill ~/wallpaperrocks.jpg
+conky &
 compton --config ~/.compton.conf -b
 redshift -l manual -l 40.6:-73.9 &
 xmodmap ~/.capslockToEsc
