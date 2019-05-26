@@ -1,21 +1,31 @@
 #!/usr/bin/env bash
 
+MAX_BRIGHTNESS=842
+
 getoutput() {
+	echo
+
 	# Get time and date
-	echo -n "Date: "
+	echo -n "Date:        "
 	date "+%A, %B %d - %I:%M %p"
 
 	# Get volume
-	echo -n "Volume: "
+	echo -n "Volume:      "
 	if [ $(pacmd list-sinks | grep muted | awk '{print $2}') == "yes" ]; then
 		echo -n "[MUTED] "
 	fi
 	pacmd list-sinks | grep volume | head -1 | awk '{print $5}'
+
+	# Get brightness
+	brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
+	echo "Brightness:  $((brightness * 100 / 851))%"
 	
 	# Get wifi status
 	echo -n "Wifi status:"
 	nmcli | head -n 1 | awk '{ $1 = ""; print $0 }'
 	
+	echo
+
 	# Get battery power
 	for battery in $(upower -e | grep BAT); do
 		basename $battery | cut -d _ -f 2 | head -c -1

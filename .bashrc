@@ -87,6 +87,8 @@ ps1_command() {
 
 # makes ls colorful
 alias ls="ls --color=auto"
+# me_irl
+alias :q="exit"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
