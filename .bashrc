@@ -71,14 +71,24 @@ END
     clear #for background artifacting
 fi
 
-# Returns a red [!] if there's an uncommited/untracked file
-git_status() {
-	[ "$(git status --porcelain 2>/dev/null)" != "" ] && echo -ne " \e[1;31m[!]\e[m"
-}
 # Sets PS1 to [victor => foldername] [!] $ (the [!] comes from the previous lines)
-PS1="[\[\e[1;34m\]\u\[\e[m\] => \[\e[1;32m\]\W\[\e[m\]\$(git_status)] $ "
+# PS1="[\[\e[1;34m\]\u\[\e[m\] => \[\e[1;32m\]\W\[\e[m\]] $ "
+PROMPT_COMMAND=ps1_command
+ps1_command() {
+	ext="$?"
+	PS1=""
+	if [ "$ext" != 0 ]; then
+		PS1+="\[\e[1;31m\]"
+	else
+		PS1+="\[\e[1;34m\]"
+	fi
+	PS1+="●\[\e[m\] \[\e[1;32m\]\W\[\e[m\] $ "
+}
+
 # makes ls colorful
 alias ls="ls --color=auto"
+# me_irl
+alias :q="exit"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

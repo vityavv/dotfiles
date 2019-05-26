@@ -2,4 +2,4 @@
 	name = Victor Veytsman
 	email = vityavv@gmail.com
 [core]
-	excludesfile = /home/victor/.gitignore
+	excludesfile = /home/victor/.gitignore_global
