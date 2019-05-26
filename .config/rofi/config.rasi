@@ -9,6 +9,6 @@ configuration {
 /*	sidebar-mode: true; Dunno about this one, probably not*/
 	separator-style: "none";
 	hide-scrollbar: true;
-color-normal: "#282828, #ebdbb2, #282828, #ebdbb2, #282828";
-color-window: "#282828, #b8bb26, #b8bb26";
+color-normal: "#fbf1c7, #3c3836, #fbf1c7, #3c3836, #fbf1c7";
+color-window: "#fbf1c7, #b8bb26, #b8bb26";
 }
